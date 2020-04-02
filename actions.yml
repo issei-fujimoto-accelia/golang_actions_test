@@ -7,7 +7,7 @@ inputs:
     required: true
   directory:
     description: "action wroking directory."
-    default: "/go/src/github/workflow"
+    default: "."
     required: false
   comment:
     description: "send comment to PR if true."
