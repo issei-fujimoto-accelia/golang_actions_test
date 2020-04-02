@@ -10,7 +10,7 @@ jobs:
     - name: check
       uses: ./actions/
       with:
-        command: 'imports'
+        command: "imports"
         token: ${{ secrets.GITHUB_TOKEN }}
 
   errcheck:
@@ -21,7 +21,7 @@ jobs:
     - name: check
       uses: ./actions/
       with:
-        command: 'errcheck'
+        command: "errcheck"
         token: ${{ secrets.GITHUB_TOKEN }}
 
   lint:
@@ -32,7 +32,7 @@ jobs:
     - name: check
       uses: ./actions/
       with:
-        rcommand: 'lint'
+        rcommand: "lint"
         token: ${{ secrets.GITHUB_TOKEN }}
 
   shadow:
@@ -43,7 +43,7 @@ jobs:
     - name: check
       uses: ./actions/
       with:
-        command: 'shadow'
+        command: "shadow"
         token: ${{ secrets.GITHUB_TOKEN }}
 
   staticcheck:
@@ -54,7 +54,7 @@ jobs:
     - name: check
       uses: ./actions/
       with:
-        command: 'staticcheck'
+        command: "staticcheck"
         token: ${{ secrets.GITHUB_TOKEN }}
 
   sec:
@@ -65,6 +65,6 @@ jobs:
     - name: check
       uses: ./actions/
       with:
-        command: 'sec'
+        command: "sec"
         token: ${{ secrets.GITHUB_TOKEN }}
         flags: "-exclude=G104"
