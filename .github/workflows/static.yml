@@ -6,7 +6,8 @@ jobs:
     name: Imports
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - name: Checkout
+      uses: actions/checkout@master@v2
     - name: check
       uses: ./actions/
       with:
@@ -17,7 +18,8 @@ jobs:
     name: Errcheck
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - name: Checkout
+      uses: actions/checkout@master@v2
     - name: check
       uses: ./actions/
       with:
@@ -28,18 +30,20 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - name: Checkout
+      uses: actions/checkout@master@v2      
     - name: check
       uses: ./actions/
       with:
-        rcommand: "lint"
+        command: "lint"
         token: ${{ secrets.GITHUB_TOKEN }}
 
   shadow:
     name: Shadow
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - name: Checkout
+      uses: actions/checkout@master@v2      
     - name: check
       uses: ./actions/
       with:
@@ -50,7 +54,8 @@ jobs:
     name: StaticCheck
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - name: Checkout
+      uses: actions/checkout@master@v2      
     - name: check
       uses: ./actions/
       with:
@@ -61,7 +66,8 @@ jobs:
     name: Sec
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - name: Checkout
+      uses: actions/checkout@master@v2      
     - name: check
       uses: ./actions/
       with:

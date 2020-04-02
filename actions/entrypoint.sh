@@ -14,7 +14,7 @@ IGNORE_DEFER_ERR=$6
 COMMENT=""
 SUCCESS=0
 
-
+echo "hello $1"
 # ------------------------
 #  Functions
 # ------------------------
