@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master@v2
+      uses: actions/checkout@master
     - name: check
       uses: ./actions/
       with:
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master@v2
+      uses: actions/checkout@master
     - name: check
       uses: ./actions/
       with:
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master@v2      
+      uses: actions/checkout@master
     - name: check
       uses: ./actions/
       with:
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master@v2      
+      uses: actions/checkout@master
     - name: check
       uses: ./actions/
       with:
@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master@v2      
+      uses: actions/checkout@master
     - name: check
       uses: ./actions/
       with:
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master@v2      
+      uses: actions/checkout@master
     - name: check
       uses: ./actions/
       with:
