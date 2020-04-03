@@ -96,8 +96,11 @@ check_imports() {
 	UNFMT_FILES=$(sh -c "goimports -l . $*" 2>&1)
 	test -z "${UNFMT_FILES}"
 	SUCCESS=$?
+
+	echo "import:::: $UNFMT_FILES"
+	hoge = `which go`
+	echo "hogehoge: $hoge"
 	
-	echo "import $UNFMT_FILES"
 	
 	set -e
 	if [ ${SUCCESS} -eq 0 ]; then
