@@ -98,7 +98,7 @@ check_imports() {
 	SUCCESS=$?
 
 	echo "import:::: $UNFMT_FILES"
-	hoge = `which go`
+	hoge=`which go`
 	echo "hogehoge: $hoge"
 	
 	
