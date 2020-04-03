@@ -5,6 +5,7 @@ inputs:
   command:
     description: "excute command. [errcheck/fmt/imports/lint/sec/shadow/staticcheck/vet]"
     required: true
+    default: "hogehoge"
   directory:
     description: "action wroking directory."
     default: "."
