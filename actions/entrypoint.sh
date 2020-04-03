@@ -1,4 +1,5 @@
 #!/bin/sh -l
+echo "HELLO $1"
 set -e
 
 # ------------------------
@@ -14,8 +15,7 @@ IGNORE_DEFER_ERR=$6
 COMMENT=""
 SUCCESS=0
 
-echo "hello $1"
-echo "hello2 $INPUT_COMMAND"
+RUN=$INPUT_COMMAND
 # ------------------------
 #  Functions
 # ------------------------
