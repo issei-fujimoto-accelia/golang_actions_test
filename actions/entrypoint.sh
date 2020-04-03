@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -l
 set -e
 
 # ------------------------
@@ -15,6 +15,7 @@ COMMENT=""
 SUCCESS=0
 
 echo "hello $1"
+echo "hello2 $INPUT_COMMAND"
 # ------------------------
 #  Functions
 # ------------------------
