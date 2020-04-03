@@ -1,5 +1,4 @@
 #!/bin/sh -l
-echo "HELLO $1"
 set -e
 
 # ------------------------
@@ -16,6 +15,10 @@ COMMENT=""
 SUCCESS=0
 
 RUN=$INPUT_COMMAND
+echo "HELLO $INPUT_COMMAND"
+hoge=`which go`
+echo "HELLO2 $hoge"
+
 # ------------------------
 #  Functions
 # ------------------------
