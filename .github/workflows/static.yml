@@ -10,7 +10,7 @@ jobs:
     - name: check
       uses: ./actions/
       with:
-        run: imports
+        command: imports
         token: ${{ secrets.GITHUB_TOKEN }}
 
   lint:
@@ -21,7 +21,7 @@ jobs:
     - name: check
       uses: ./actions/
       with:
-        run: lint
+        command: lint
         token: ${{ secrets.GITHUB_TOKEN }}
 
   fmt:
@@ -32,7 +32,7 @@ jobs:
     - name: check
       uses: ./actions/
       with:
-        run: fmt
+        command: fmt
         token: ${{ secrets.GITHUB_TOKEN }}
 
   vet:
@@ -43,7 +43,7 @@ jobs:
     - name: check
       uses: ./actions/
       with:
-        run: vet
+        command: vet
         token: ${{ secrets.GITHUB_TOKEN }}
 
   
