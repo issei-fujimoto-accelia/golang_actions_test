@@ -25,7 +25,7 @@ echo "HELLO $INPUT_COMMAND"
 send_comment() {
     echo "send!!!!"
     PAYLOAD=$(echo '{}' | jq --arg body "${COMMENT}" '.body = $body')
-    hoge=`$(cat ${GITHUB_EVENT_PATH} | jq -r .)`
+    hoge=`$cat ${GITHUB_EVENT_PATH} | jq -r .`
     echo $hoge
     
     COMMENTS_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .pull_request.comments_url)
@@ -245,6 +245,8 @@ echo $PWD
 #echo "debug: "${w}
 l=`ls ${GOPATH}/bin`
 echo "debug: "${l}
+echo ${GOPATH}
+echo ${PATH}
 
 case ${RUN} in
 	"errcheck" )
