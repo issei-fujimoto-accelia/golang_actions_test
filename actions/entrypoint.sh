@@ -244,8 +244,8 @@ ${OUTPUT}
 echo "2:"$PATH
 
 cd ${GITHUB_WORKSPACE}/${WORKING_DIR}
-export PATH=${PATH}:${GOPATH}/bin
-export PATH=${PATH}:"/usr/local/go/bin"
+# export PATH=${PATH}:${GOPATH}/bin
+# export PATH=${PATH}:"/usr/local/go/bin"
 
 case ${RUN} in
 	"errcheck" )
