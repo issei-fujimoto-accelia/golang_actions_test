@@ -1,76 +1,14 @@
 name: static check
-on: [push, pull_request]
+on: pull_request
 
 jobs:
   imports:
     name: Imports
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+    - uses: actions/checkout@master
     - name: check
-      uses: ./actions/
+      uses: issei-fujimoto-accelia/golang_actions_test
       with:
-        command: "imports"
+        run: imports
         token: ${{ secrets.GITHUB_TOKEN }}
-
-  errcheck:
-    name: Errcheck
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: check
-      uses: ./actions/
-      with:
-        command: "errcheck"
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: check
-      uses: ./actions/
-      with:
-        command: "lint"
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-  shadow:
-    name: Shadow
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: check
-      uses: ./actions/
-      with:
-        command: "shadow"
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-  staticcheck:
-    name: StaticCheck
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: check
-      uses: ./actions/
-      with:
-        command: "staticcheck"
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-  sec:
-    name: Sec
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: check
-      uses: ./actions/
-      with:
-        command: "sec"
-        token: ${{ secrets.GITHUB_TOKEN }}
-        flags: "-exclude=G104"
