@@ -23,8 +23,11 @@ echo "HELLO $INPUT_COMMAND"
 # send_comment is send ${comment} to pull request.
 # this function use ${GITHUB_TOKEN}, ${COMMENT} and ${GITHUB_EVENT_PATH}
 send_comment() {
+    echo "send!!!!"
     PAYLOAD=$(echo '{}' | jq --arg body "${COMMENT}" '.body = $body')
-    echo "aaaaaa:"${GITHUB_EVENT_PATH}
+    hoge=`$(cat ${GITHUB_EVENT_PATH} | jq -r .)`
+    echo $hoge
+    
     COMMENTS_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .pull_request.comments_url)
     curl -s -S -H "Authorization: token ${GITHUB_TOKEN}" --header "Content-Type: application/json" --data "${PAYLOAD}" "${COMMENTS_URL}" > /dev/null
 }
@@ -102,7 +105,10 @@ check_imports() {
 	if [ ${SUCCESS} -eq 0 ]; then
 		return
 	fi
+	hoge=`goimports -l . $*`
+	echo $hoge
 
+	
 	if [ "${SEND_COMMNET}" = "true" ]; then
 		FMT_OUTPUT=""
 		for file in ${UNFMT_FILES}; do
