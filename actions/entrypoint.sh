@@ -1,6 +1,8 @@
 #!/bin/sh -l
 set -e
 
+echo "1:"$PATH
+
 # ------------------------
 #  Environments
 # ------------------------
@@ -239,6 +241,8 @@ ${OUTPUT}
 # ------------------------
 #  Main Flow
 # ------------------------
+echo "2:"$PATH
+
 cd ${GITHUB_WORKSPACE}/${WORKING_DIR}
 export PATH=${PATH}:${GOPATH}/bin
 export PATH=${PATH}:"/usr/local/go/bin"
