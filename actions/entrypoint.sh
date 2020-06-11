@@ -245,6 +245,10 @@ l=`ls ${GOPATH}/bin`
 echo ${l}
 g=`go env`
 echo ${g}
+echo ${PATH}
+g2=`ls /usr/local/go/bin`
+echo ${g2}
+
 case ${RUN} in
 	"errcheck" )
 		mod_download
