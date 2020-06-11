@@ -240,13 +240,7 @@ ${OUTPUT}
 #  Main Flow
 # ------------------------
 cd ${GITHUB_WORKSPACE}/${WORKING_DIR}
-echo $PWD
-#w=`which goimports`
-#echo "debug: "${w}
-l=`ls ${GOPATH}/bin`
-echo "debug: "${l}
-echo ${GOPATH}
-echo ${PATH}
+export ${PATH}:${GOPATH}/bin
 
 case ${RUN} in
 	"errcheck" )
