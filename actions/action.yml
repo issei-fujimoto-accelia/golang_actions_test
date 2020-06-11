@@ -2,7 +2,7 @@ name: "static analysis checker"
 description: "static code analysis checker for golang"
 author: "grandcolline"
 inputs:
-  command:
+  run:
     description: "excute command. [errcheck/fmt/imports/lint/sec/shadow/staticcheck/vet]"
     required: true
     default: ""
@@ -30,7 +30,7 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.command }}
+    - ${{ inputs.run }}
     - ${{ inputs.directory }}
     - ${{ inputs.comment }}
     - ${{ inputs.token }}
