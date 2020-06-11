@@ -243,11 +243,12 @@ cd ${GITHUB_WORKSPACE}/${WORKING_DIR}
 export PATH=${PATH}:${GOPATH}/bin
 l=`ls ${GOPATH}/bin`
 echo ${l}
-g=`go env`
-echo ${g}
 echo ${PATH}
 g2=`ls /usr/local/go/bin`
 echo ${g2}
+
+g=`go env`
+echo ${g}
 
 case ${RUN} in
 	"errcheck" )
