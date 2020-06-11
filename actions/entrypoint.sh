@@ -241,7 +241,10 @@ ${OUTPUT}
 # ------------------------
 cd ${GITHUB_WORKSPACE}/${WORKING_DIR}
 export PATH=${PATH}:${GOPATH}/bin
-
+l=`ls ${GOPATH}/bin`
+echo ${l}
+g=`go env`
+echo ${g}
 case ${RUN} in
 	"errcheck" )
 		mod_download
