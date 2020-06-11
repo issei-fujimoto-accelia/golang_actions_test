@@ -12,3 +12,14 @@ jobs:
       with:
         command: imports
         token: ${{ secrets.GITHUB_TOKEN }}
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: check
+      uses: ./actions/
+      with:
+        run: lint
+        token: ${{ secrets.GITHUB_TOKEN }}

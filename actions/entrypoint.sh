@@ -105,9 +105,6 @@ check_imports() {
 	if [ ${SUCCESS} -eq 0 ]; then
 		return
 	fi
-	hoge=`goimports -l . $*`
-	echo $hoge
-
 	
 	if [ "${SEND_COMMNET}" = "true" ]; then
 		FMT_OUTPUT=""
@@ -243,6 +240,11 @@ ${OUTPUT}
 #  Main Flow
 # ------------------------
 cd ${GITHUB_WORKSPACE}/${WORKING_DIR}
+echo $PWD
+w=`which goimports`
+echo "debug: "${w}
+l=`ls ${GOPATH}/bin`
+echo "debug: "${l}
 
 case ${RUN} in
 	"errcheck" )
