@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: check
-      uses: issei-fujimoto-accelia/golang_actions_test@master
+      uses: issei-fujimoto-accelia/github_actions_go_test@master
       with:
         run: imports
         token: ${{ secrets.GITHUB_TOKEN }}
