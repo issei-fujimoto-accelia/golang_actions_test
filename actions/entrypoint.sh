@@ -241,8 +241,8 @@ ${OUTPUT}
 # ------------------------
 cd ${GITHUB_WORKSPACE}/${WORKING_DIR}
 echo $PWD
-w=`which goimports`
-echo "debug: "${w}
+#w=`which goimports`
+#echo "debug: "${w}
 l=`ls ${GOPATH}/bin`
 echo "debug: "${l}
 
