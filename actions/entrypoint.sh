@@ -23,9 +23,10 @@ echo "HELLO $INPUT_COMMAND"
 # send_comment is send ${comment} to pull request.
 # this function use ${GITHUB_TOKEN}, ${COMMENT} and ${GITHUB_EVENT_PATH}
 send_comment() {
-	PAYLOAD=$(echo '{}' | jq --arg body "${COMMENT}" '.body = $body')
-	COMMENTS_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .pull_request.comments_url)
-	curl -s -S -H "Authorization: token ${GITHUB_TOKEN}" --header "Content-Type: application/json" --data "${PAYLOAD}" "${COMMENTS_URL}" > /dev/null
+    PAYLOAD=$(echo '{}' | jq --arg body "${COMMENT}" '.body = $body')
+    echo "aaaaaa:"${GITHUB_EVENT_PATH}
+    COMMENTS_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .pull_request.comments_url)
+    curl -s -S -H "Authorization: token ${GITHUB_TOKEN}" --header "Content-Type: application/json" --data "${PAYLOAD}" "${COMMENTS_URL}" > /dev/null
 }
 
 # mod_download is getting go modules using go.mod.

@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: check
-      uses: ./actions/
+      uses: actions/
       with:
         command: imports
         token: ${{ secrets.GITHUB_TOKEN }}
