@@ -240,7 +240,7 @@ ${OUTPUT}
 #  Main Flow
 # ------------------------
 cd ${GITHUB_WORKSPACE}/${WORKING_DIR}
-export ${PATH}:${GOPATH}/bin
+export PATH=${PATH}:${GOPATH}/bin
 
 case ${RUN} in
 	"errcheck" )
