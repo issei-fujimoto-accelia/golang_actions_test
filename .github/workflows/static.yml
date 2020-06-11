@@ -10,5 +10,5 @@ jobs:
     - name: check
       uses: ./actions/
       with:
-        run: imports
+        command: imports
         token: ${{ secrets.GITHUB_TOKEN }}
