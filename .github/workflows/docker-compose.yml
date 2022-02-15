@@ -16,7 +16,7 @@ jobs:
       - name: test-curl-in-steps
         shell: bash
         run: |
-          curl localhost:8080
+          curl localhost:18888
 
   test1:
     runs-on: ubuntu-latest
@@ -26,7 +26,7 @@ jobs:
       - name: test-curl-another-steps
         shell: bash
         run: |
-          curl localhost:8080
+          curl localhost:18888
 
   test:
     runs-on: ubuntu-latest
@@ -36,4 +36,4 @@ jobs:
       - name: compose-run
         shell: bash
         run: |
-          curl --silent --fail --output /dev/null --head localhost:8080
+          curl --silent --fail --output /dev/null --head localhost:18888
