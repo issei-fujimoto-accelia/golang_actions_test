@@ -19,7 +19,7 @@ jobs:
       - name: check nginx conf2
         shell: bash
         run: |
-          docker run -v $(pwd)/k8s/nginx/resources/nginx/:/usr/local/nginx/conf/ ghcr.io/masanetes/sample/ngx-dynamic-stream:latest nginx -t
+          docker run -v $(pwd)/k8s/nginx/resources/nginx/:/usr/local/nginx/conf/ ghcr.io/issei-fujimoto-accelia/nginx-1.21.3:v1.0 nginx -t
 
   check-path:
     needs: check-conf
@@ -32,7 +32,7 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: docker run
-        run: docker run -itd -p 80:80 -v $(pwd)/k8s/nginx/resources/nginx/:/usr/local/nginx/conf/ ghcr.io/masanetes/sample/ngx-dynamic-stream:latest
+        run: docker run -itd -p 80:80 -v $(pwd)/k8s/nginx/resources/nginx/:/usr/local/nginx/conf/ ghcr.io/issei-fujimoto-accelia/nginx-1.21.3:v1.0
 
       - name: shell
         shell: bash
