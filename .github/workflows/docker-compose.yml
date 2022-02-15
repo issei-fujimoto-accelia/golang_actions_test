@@ -18,7 +18,7 @@ jobs:
         run: |
           docker ps
       - name: Test
-        run: docker run --net golang_actions_test_default appropriate/curl  --silent --fail --output /dev/null --head localhost:18888/
+        run: docker run --net golang_actions_test_default appropriate/curl  --silent --fail --output /dev/null --head app:18888/
       - name: test-curl-in-steps
         shell: bash
         run: |
