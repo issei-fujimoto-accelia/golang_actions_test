@@ -13,12 +13,17 @@ jobs:
         shell: bash
         run: |
           docker-compose up -d
+      - name: test-curl-in-steps
+        shell: bash
+        run: |
+          curl localhost:8080
+
   test1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         
-      - name: compose-run
+      - name: test-curl-another-steps
         shell: bash
         run: |
           curl localhost:8080
