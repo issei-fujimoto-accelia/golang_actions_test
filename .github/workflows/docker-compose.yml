@@ -13,6 +13,16 @@ jobs:
         shell: bash
         run: |
           docker-compose up -d
+  test1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: compose-run
+        shell: bash
+        run: |
+          curl localhost:8080
+
   test:
     runs-on: ubuntu-latest
     steps:
