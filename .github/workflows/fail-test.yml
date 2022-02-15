@@ -9,11 +9,20 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         
-      - name: fail
+      - name: success
         shell: bash
         run: |
           echo success1
-
+          
+      - name: fail
+        shell: bash
+        run: |
+          exit 7
+          
+      - name: success
+        shell: bash
+        run: |
+          echo success2
   
   check-conf:
     runs-on: ubuntu-latest
@@ -36,4 +45,4 @@ jobs:
       - name: deploy
         shell: bash
         run: |
-          echo success2
+          echo success3
