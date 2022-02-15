@@ -7,8 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
       - name: compose-run
         shell: bash
         run: |
@@ -16,30 +14,8 @@ jobs:
       - name: ps
         shell: bash
         run: |
-          docker ps
-      - name: Test
-        run: docker run --net golang_actions_test_default appropriate/curl  --silent --fail --output /dev/null --head app:18888/
+          docker ps  
       - name: test-curl-in-steps
         shell: bash
         run: |
           curl localhost:18888
-
-  test1:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        
-      - name: test-curl-another-steps
-        shell: bash
-        run: |
-          curl localhost:18888
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        
-      - name: compose-run
-        shell: bash
-        run: |
-          curl --silent --fail --output /dev/null --head localhost:18888
