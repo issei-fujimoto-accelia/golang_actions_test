@@ -1,6 +1,10 @@
-name: ci-pipeline
-on: [push]
+name: ci-pipeline1
 
+on:
+  push:
+    branches:
+      - master
+      
 jobs:
   check-conf:
     runs-on: ubuntu-latest
