@@ -1,0 +1,53 @@
+name: ci-pipeline
+on: [push]
+
+jobs:
+  check-conf:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        
+      - name: Log in to the Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: pull-image
+        shell: bash
+        run: |
+          docker pull ghcr.io/masanetes/sample/ngx-dynamic-stream:latest
+
+      - name: check nginx conf2
+        shell: bash
+        run: |
+          docker run -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf ghcr.io/masanetes/sample/ngx-dynamic-stream:latest nginx -t -c $(pwd)/docker-compose/nginx/lb01-east/resources/nginx/nginx.conf
+          docker run -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf ghcr.io/masanetes/sample/ngx-dynamic-stream:latest nginx -t -c $(pwd)/docker-compose/nginx/lb01-west/resources/nginx/nginx.conf         
+          docker run -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf ghcr.io/masanetes/sample/ngx-dynamic-stream:latest nginx -t -c $(pwd)/k8s/nginx/resources/nginx/nginx.conf
+
+  check-path:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        
+      - name: Log in to the Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: docker compose up
+        run: docker-compose -f up -d
+        
+      - name: test-curl-in-steps1
+        run: docker run --net golang_actions_test_default appropriate/curl  --silent --fail --output /dev/null --head app:18888/
+        
+      - name: check echo path
+        run: curl -I app:18888
+        
