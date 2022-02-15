@@ -4,17 +4,19 @@ on:
   push:
     branches:
       - master
-jobs:
+jobs:  
   imports:
     name: Imports
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+      
     - name: check
       uses: ./actions/
       with:
         command: imports
         token: ${{ secrets.GITHUB_TOKEN }}
+        
 
   lint:
     name: Lint

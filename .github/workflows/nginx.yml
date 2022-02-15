@@ -28,6 +28,16 @@ jobs:
           docker run -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf ghcr.io/masanetes/sample/ngx-dynamic-stream:latest nginx -t -c $(pwd)/docker-compose/nginx/lb01-west/resources/nginx/nginx.conf         
           docker run -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf ghcr.io/masanetes/sample/ngx-dynamic-stream:latest nginx -t -c $(pwd)/k8s/nginx/resources/nginx/nginx.conf
 
+      - name: start nginx
+        shell: bash
+        run: |
+          docker run -v -it -d $(pwd)/nginx.conf:/etc/nginx/nginx.conf ghcr.io/masanetes/sample/ngx-dynamic-stream:latest
+          
+      - name: echo
+        shell: bash
+        run: |
+          curl 
+
   check-path:
     runs-on: ubuntu-latest
     

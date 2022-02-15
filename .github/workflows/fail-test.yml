@@ -1,0 +1,25 @@
+name: fail-test
+on: [push]
+
+jobs:
+  check-conf:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        
+      - name: fail
+        shell: bash
+        run: |
+          exit 7
+          
+  deploy-step:          
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        
+      - name: deploy
+        shell: bash
+        run: |
+          echo ok!
