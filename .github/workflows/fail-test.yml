@@ -2,6 +2,19 @@ name: fail-test
 on: [push]
 
 jobs:
+  success:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        
+      - name: fail
+        shell: bash
+        run: |
+          echo success1
+
+  
   check-conf:
     runs-on: ubuntu-latest
     
@@ -14,7 +27,8 @@ jobs:
         run: |
           exit 7
           
-  deploy-step:          
+  deploy-step:
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -22,4 +36,4 @@ jobs:
       - name: deploy
         shell: bash
         run: |
-          echo ok!
+          echo success2
