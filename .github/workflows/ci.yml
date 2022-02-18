@@ -3,7 +3,7 @@ on: [push]
 
 env:
   IMAGE: ghcr.io/issei-fujimoto-accelia/nginx-1.21.3:v1.0
-  MOCKPATH: $GITHUB_WORKSPACE/.github/workflows/mock
+  MOCKPATH: .github/workflows/mock
   
 jobs:
   check-conf:
@@ -22,7 +22,7 @@ jobs:
         run: echo $MOCKPATH
         
       - name: 
-        run: cd $MOCKPATH && docker-compose up -d
+        run: cd $($GITHUB_WORKSPACE)/$(MOCKPATH) && docker-compose up -d
 
 
   # check-conf:                  
