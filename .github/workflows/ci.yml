@@ -16,7 +16,7 @@ jobs:
         run: echo $GITHUB_WORKSPACE && ls -l
 
       - name: run2
-        run: cd .github/workflows && pwd
+        run: cd .github/workflows && pwd && ls -l
 
       - name: run3
         run: echo $MOCKPATH
