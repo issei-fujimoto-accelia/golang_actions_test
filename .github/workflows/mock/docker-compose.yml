@@ -1,32 +1,36 @@
 version: '3'
 services:
   m2hub-east-service:
-    image: golang:1.14
+    image: python:3.11-rc-slim-buster
     tty: true
     volumes:
       - ./src:/go/src
-    command: "go run /go/src/main.go"
+    command: "python3 -m http.server 8080"
     networks:
       - mock-link
     
   m2hub-west-service:
-    image: golang:1.14
+    image: python:3.11-rc-slim-buster
     tty: true
     volumes:
       - ./src:/go/src
-    command: "go run /go/src/main.go"
+    command: "python3 -m http.server 8080"
     networks:
       - mock-link
     
   m2hub-us-service:
-    image: golang:1.14
+    image: python:3.11-rc-slim-buster
     tty: true
     volumes:
       - ./src:/go/src
-    command: "go run /go/src/main.go"
+    command: "python3 -m http.server 8080"
     networks:
       - mock-link
+    
+
       
 networks:
   mock-link:
     name: mock-net
+
+    

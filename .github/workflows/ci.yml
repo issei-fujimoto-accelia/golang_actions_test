@@ -3,7 +3,8 @@ on: [push]
 
 env:
   IMAGE: ghcr.io/issei-fujimoto-accelia/nginx-1.21.3:v1.0
-
+  MOCKPATH: $GITHUB_WORKSPACE/.github/workflows/mock
+  
 jobs:
   check-conf:
     runs-on: ubuntu-latest
@@ -14,7 +15,7 @@ jobs:
       - name: run
         run: pwd && ls
       - name: 
-        run: cd .github/workflows/mock && docker-compose up -d
+        run: cd $MOCKPATH && docker-compose up -d
 
 
   # check-conf:                  
