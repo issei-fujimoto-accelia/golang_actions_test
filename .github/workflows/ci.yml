@@ -22,7 +22,7 @@ jobs:
         run: echo $MOCKPATH
         
       - name: 
-        run: cd $($GITHUB_WORKSPACE)/$(MOCKPATH) && docker-compose up -d
+        run: cd $GITHUB_WORKSPACE/$MOCKPATH && docker-compose up -d
 
 
   # check-conf:                  
