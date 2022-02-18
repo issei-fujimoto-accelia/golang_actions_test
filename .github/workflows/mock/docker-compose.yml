@@ -1,0 +1,32 @@
+version: '3'
+services:
+  m2hub-east-service:
+    image: golang:1.14
+    tty: true
+    volumes:
+      - ./src:/go/src
+    command: "go run /go/src/main.go"
+    networks:
+      - mock-link
+    
+  m2hub-west-service:
+    image: golang:1.14
+    tty: true
+    volumes:
+      - ./src:/go/src
+    command: "go run /go/src/main.go"
+    networks:
+      - mock-link
+    
+  m2hub-us-service:
+    image: golang:1.14
+    tty: true
+    volumes:
+      - ./src:/go/src
+    command: "go run /go/src/main.go"
+    networks:
+      - mock-link
+      
+networks:
+  mock-link:
+    name: mock-net

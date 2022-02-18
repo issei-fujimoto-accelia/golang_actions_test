@@ -1,44 +1,50 @@
-name: ci-pipeline2
+name: ci-pipeline
 on: [push]
+
+env:
+  IMAGE: ghcr.io/issei-fujimoto-accelia/nginx-1.21.3:v1.0
 
 jobs:
   check-conf:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2
-
-      - name: Log in to registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-
-      - name: pull-image
-        shell: bash
-        run: |
-          docker pull ghcr.io/issei-fujimoto-accelia/nginx-1.21.3:v1.0
-
-      - name: check nginx conf2
-        shell: bash
-        run: |
-          docker run -v $(pwd)/k8s/nginx/resources/nginx/:/usr/local/nginx/conf/ ghcr.io/issei-fujimoto-accelia/nginx-1.21.3:v1.0 nginx -t
-
-  check-path:
-    needs: check-conf
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
-
-      - name: Log in to registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-
-      - name: docker run
-        run: docker run -itd -p 80:80 ghcr.io/issei-fujimoto-accelia/nginx-1.21.3:v1.0
-
-      - name: shell
-        shell: bash
-        run: |
-          docker ps
-          docker network ls          
+        uses: actions/checkout@v2 
         
-      - name: check echo path
-        run: curl -If http://localhost/echo
+      - name: run
+        run: pwd && ls
+      - name: 
+        run: cd .github/workflows/mock && docker-compose up -d
+
+
+  # check-conf:                  
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v2        
+        
+  #     - name: Log in to registry
+  #       run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+  #     - name: pull-image
+  #       run: docker pull $IMAGE
+
+ 
+  # check-conf2:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v2
+
+  #     - name: Log in to registry
+  #       run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+  #     - name: docker run
+  #       run: cd ./mock && docker-compose up -d
+
+  #     - name: check nginx conf
+  #       run: docker run --net=mock-net -v $(pwd)/k8s/nginx/resources/nginx/:/nginx/ $IMAGE nginx -t
+  #       run: docker run --net=mock-net -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf nginx:1.21.3 nginx -t
+
+
+
