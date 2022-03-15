@@ -1,0 +1,16 @@
+name: nats-cicd-pipeline
+on: [push]
+
+env:
+  IMAGE: nats-streaming:0.22.1-alpine
+  TESTIMAGENAME: "runtest"
+  
+jobs:
+  check-conf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Log in to registry
+        run: echo "ok!"
