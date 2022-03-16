@@ -1,0 +1,10 @@
+name: call_job
+on: [push]
+
+jobs:
+  check-west:
+    steps:        
+      - uses: ./.github/workflows/common
+        with:
+          name: "call_job!!!!"
+  

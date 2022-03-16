@@ -1,0 +1,24 @@
+name: m2hub-pipeline-base
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: "e.g. namee"
+        type: string
+        required: true
+  
+env:
+  IMAGE: ghcr.io/gemrg/m2hub-temp:latest
+  BASE_PATH: $(pwd)/k8s/m2hub
+  
+jobs:
+  check-west:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        
+    steps:
+      - name: hello
+        run: echo $inputs.name
