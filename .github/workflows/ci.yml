@@ -8,8 +8,9 @@ env:
   IMAGE: ghcr.io/issei-fujimoto-accelia/nginx-1.21.3:v1.0
   MOCKPATH: .github/workflows/mock
   
-jobs:
+jobs:  
   pull-test:
+    needs: [custome-test]
     runs-on: ubuntu-latest
     steps:
       - name: checkout
