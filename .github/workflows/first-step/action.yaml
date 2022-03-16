@@ -9,8 +9,10 @@ runs:
   using: "composite"
   steps:
     - name: "hello"
+      shell: bash
       run: echo "hello custome action!!!!!!"
-      
+          
     - name: "hello"
+      shell: bash
       run: echo ${{ inputs.name }}
       
