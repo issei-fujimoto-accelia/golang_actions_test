@@ -8,11 +8,9 @@ inputs:
 runs:
   using: "composite"
   steps:
-    hello1:
     - name: "hello"
       run: echo "hello custome action!!!!!!"
       
-    hello2:
     - name: "hello"
       run: echo ${{ inputs.name }}
       
