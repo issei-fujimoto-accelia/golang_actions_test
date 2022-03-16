@@ -1,7 +1,8 @@
 name: check-env
 on:
   push:
-    [develop]
+    branches:
+      - develop
 
 env:
   IMAGE: ghcr.io/issei-fujimoto-accelia/nginx-1.21.3:v1.0
