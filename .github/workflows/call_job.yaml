@@ -10,8 +10,7 @@ jobs:
         
       - name: common
         uses: ./.github/workflows/first-step
-        with:
-          name: "my name is custome action"
+
 
   call-job:
     needs: [custome-action]
