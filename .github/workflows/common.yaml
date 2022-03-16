@@ -1,4 +1,4 @@
-name: m2hub-pipeline-base
+name: common
 
 on:
   workflow_call:
