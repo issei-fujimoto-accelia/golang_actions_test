@@ -17,6 +17,9 @@ jobs:
 
       - name: get
         run: echo "aaaa $ENV_1" $ENV_1
+
+      - name: output
+        run: echo "::set-output name=ENV_2::hello2!!!!!"
                 
   check-conf:
     runs-on: ubuntu-latest
@@ -30,6 +33,9 @@ jobs:
 
       - name: run2
         run: echo ${{ env.ENV_1}} $ENV_1
+        
+      - name: run3
+        run: echo ${{ steps.set-env.outputs.ENV_2 }}
 
   # check-conf:                  
   #   runs-on: ubuntu-latest
