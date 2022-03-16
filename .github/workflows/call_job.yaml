@@ -12,7 +12,7 @@ jobs:
         run: echo "call job origin"
         
       - name: common
-        uses: ./.github/actions/first-step
+        uses: ./.github/workflows/first-step
         with:
           name: "call_job_step!!!!!!!"
 
