@@ -1,5 +1,5 @@
 name: call_job
-on: [push]
+on: []
 
 jobs:
   setup:

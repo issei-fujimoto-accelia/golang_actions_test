@@ -2,7 +2,7 @@ name: check-env
 on:
   push:
     branches:
-      - develop
+      - master
 
 env:
   IMAGE: ghcr.io/issei-fujimoto-accelia/nginx-1.21.3:v1.0
@@ -23,23 +23,15 @@ jobs:
 
       - name: output
         run: echo "::set-output name=ENV_2::hello2!!!!!"
-                
-  check-conf:
-    runs-on: ubuntu-latest
-    needs: [set-env]
-    steps:      
-      - name: checkout
-        uses: actions/checkout@v2 
         
-      - name: run
-        run: echo $GITHUB_WORKSPACE
-
-      - name: run2
-        run: echo ${{ env.ENV_1}} $ENV_1
+      - name: Log in to registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
         
-      - name: run3
-        run: echo ${{ jobs.steps.set-env.outputs.ENV_2 }}
+      - name: pull-image
+        run: docker pull $IMAGE
 
+
+        
   # check-conf:                  
   #   runs-on: ubuntu-latest
   #   steps:
