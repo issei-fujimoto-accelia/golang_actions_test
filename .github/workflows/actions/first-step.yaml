@@ -3,7 +3,7 @@ inputs:
   name:
     description: "sample"
     required: true
-    
+
 runs:
   using: "composite"
   steps:

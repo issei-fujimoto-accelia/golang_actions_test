@@ -2,22 +2,18 @@ name: call_job
 on: [push]
 
 jobs:
-  setup:
+  custome-action:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
-        
-      - name: hello
-        run: echo "call job origin"
         
       - name: common
         uses: ./.github/workflows/first-step
         with:
           name: "my name is custome action"
 
-  
-  call:
+  call-job:
     needs: [setup]
     uses: ./.github/workflows/common.yaml
     with:
