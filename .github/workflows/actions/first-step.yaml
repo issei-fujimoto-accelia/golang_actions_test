@@ -5,7 +5,8 @@ inputs:
     required: true
     
 runs:
+  using: "composite"
   steps:
     - name: "hello"
-      run: echo "hello steps!!!!!!"
+      run: echo "hello custome action!!!!!!"
       
