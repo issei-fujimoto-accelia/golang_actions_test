@@ -1,0 +1,14 @@
+name: dockerlogin
+on:
+  workflow_call
+  
+jobs:
+  pull-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2        
+        
+      - name: Log in to registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        

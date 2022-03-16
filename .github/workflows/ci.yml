@@ -2,14 +2,14 @@ name: check-env
 on:
   push:
     branches:
-      - master
+      - develop
 
 env:
   IMAGE: ghcr.io/issei-fujimoto-accelia/nginx-1.21.3:v1.0
   MOCKPATH: .github/workflows/mock
   
 jobs:
-  set-env:
+  pull-test:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -24,12 +24,15 @@ jobs:
       - name: output
         run: echo "::set-output name=ENV_2::hello2!!!!!"
         
-      - name: Log in to registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
         
       - name: pull-image
         run: docker pull $IMAGE
-
 
         
   # check-conf:                  

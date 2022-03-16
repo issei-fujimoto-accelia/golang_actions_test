@@ -1,5 +1,5 @@
 name: call_job
-on: []
+on: [push]
 
 jobs:
   setup:
@@ -10,6 +10,11 @@ jobs:
         
       - name: hello
         run: echo "call job origin"
+        
+      - name: common
+        uses: ./.github/workflows/common.yaml
+        with:
+          name: "call_job_step!!!!!!!"
 
   
   call:
