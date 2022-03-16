@@ -5,8 +5,7 @@ inputs:
     required: true
     
 runs:
-  hello:
-    steps:
-      - name: "hello"
-        run: echo "hello steps!!!!!!"
+  steps:
+    - name: "hello"
+      run: echo "hello steps!!!!!!"
       
