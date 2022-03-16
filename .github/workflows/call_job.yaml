@@ -2,7 +2,17 @@ name: call_job
 on: [push]
 
 jobs:
+  setup:
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        
+      - name: hello
+        run: echo "call job origin"
+
+  
   call:
+    needs: [setup]
     uses: ./.github/workflows/common.yaml
     with:
       name: "call_job!!!!!!"
