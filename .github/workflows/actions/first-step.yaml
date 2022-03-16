@@ -1,4 +1,3 @@
-name: steps
 inputs:
   name:
     description: "sample"
