@@ -14,7 +14,7 @@ jobs:
           name: "my name is custome action"
 
   call-job:
-    needs: [setup]
+    needs: [custome-actions]
     uses: ./.github/workflows/common.yaml
     with:
       name: "call_job!!!!!!"
