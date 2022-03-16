@@ -1,12 +1,18 @@
-name: steps
+name: "custome action"
+
 inputs:
   name:
     description: "sample"
     required: true
 
-jobs:
-  hello:
-    steps:
-      - name: "hello"
-        run: echo "hello steps!!!!!!"
+runs:
+  using: "composite"
+  steps:
+    hello:
+    - name: "hello"
+      run: echo "hello custome action!!!!!!"
+      
+    hello:
+    - name: "hello"
+      run: echo ${{ inputs.name }}
       
