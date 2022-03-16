@@ -14,6 +14,9 @@ jobs:
         
       - name: set
         run: echo "ENV_1=$ENV_1" >> $GITHUB_ENV
+
+      - name: get
+        run: echo "aaaa: $ENV_1" $ENV_1
                 
   check-conf:
     runs-on: ubuntu-latest
