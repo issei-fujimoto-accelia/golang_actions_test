@@ -15,10 +15,10 @@ env:
 jobs:
   check-west:
     runs-on: ubuntu-latest
+    
     steps:
       - name: checkout
         uses: actions/checkout@v2
         
-    steps:
       - name: hello
         run: echo $inputs.name
