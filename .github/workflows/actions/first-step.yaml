@@ -1,0 +1,12 @@
+name: steps
+inputs:
+  name:
+    description: "sample"
+    required: true
+runs:
+jobs:
+  hello:
+    steps:
+      - name: "hello"
+        run: echo "hello steps!!!!!!"
+      
