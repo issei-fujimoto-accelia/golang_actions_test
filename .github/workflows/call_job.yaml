@@ -2,7 +2,8 @@ name: call_job
 on: [push]
 
 jobs:
-  check-west:
+  call:
+    runs-on: ubuntu-latest
     steps:        
       - uses: ./.github/workflows/common
         with:
