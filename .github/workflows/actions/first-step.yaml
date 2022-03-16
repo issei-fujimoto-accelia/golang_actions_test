@@ -6,6 +6,7 @@ inputs:
 runs:
   using: "composite"
   steps:
+    hello:
     - name: "hello"
       run: echo "hello custome action!!!!!!"
       
